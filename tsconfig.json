@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
+    "module": "none",
     "strictNullChecks": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -10,7 +11,8 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "target": "es6",
-    "lib": ["dom", "es2017"],
+    "lib": ["es2015", "dom", "dom.iterable"],
+    "sourceMap": true,
     "skipLibCheck": true
   },
   "exclude": ["node_modules"]

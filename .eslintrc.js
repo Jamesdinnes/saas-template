@@ -44,6 +44,7 @@ const eslintrc = {
       'error',
       {
         devDependencies: [
+          'webpack/**',
           'site/**',
           'tests/**',
           'scripts/**',
