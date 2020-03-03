@@ -1,7 +1,8 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import 'antd/dist/antd.css';
+import Routes from './routes';
 
-const App = () => <div>Hello World!</div>;
+const App = () => <Routes />;
 
 export default hot(App);

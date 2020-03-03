@@ -94,34 +94,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(j|t)s(x)?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-            babelrc: false,
-            presets: [
-              [
-                '@babel/preset-env',
-                { targets: { browsers: 'last 2 versions' } }, // or whatever your project requires
-              ],
-              '@babel/preset-typescript',
-              '@babel/preset-react',
-            ],
-            plugins: [
-              'react-hot-loader/babel',
-              [
-                'import',
-                {
-                  libraryName: 'antd',
-                  libraryDirectory: 'es',
-                  style: 'css',
-                },
-              ],
-            ],
-          },
-        },
+        test: /\.ts(x)?$/,
+        use: ['awesome-typescript-loader'],
       },
       {
         test: /\.module\.s(a|c)ss$/,
@@ -155,6 +129,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.css$/,
+        loader: [isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
