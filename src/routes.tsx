@@ -1,31 +1,18 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Spin } from 'antd';
 
-import SessionStore from './stores/session.store';
+import LoginForm from './pages/auth/login';
+import AuthContainer from './pages/auth/auth-container';
 
 export default () => (
   <BrowserRouter>
     <Suspense fallback={<Spin />}>
-      <Switch>{/* <Route path="/auth" component={} /> */}</Switch>
+      <Switch>
+        <AuthContainer>
+          <Route path="/" component={LoginForm} />
+        </AuthContainer>
+      </Switch>
     </Suspense>
   </BrowserRouter>
-);
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      SessionStore.isAuthenticated === true ? (
-        <Component {...props} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: '/login',
-            state: { from: props.location },
-          }}
-        />
-      )
-    }
-  />
 );
