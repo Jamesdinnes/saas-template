@@ -22,7 +22,6 @@ This boilerplate to launch the following SaaS businesses:
   - verified Stripe webhook for failed payment for subscription.
 
 ## TODO - In Order
- * [] Husky Hooks
  * [] Basic Login and registration - with sessions
  * [] Graphql Login - using saas-backend-boilerplate
  * [] OAuth Login ( Microsoft, Google )
